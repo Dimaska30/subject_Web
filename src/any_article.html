@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Газета "Постмодерн"</title>
+    <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/e0fecb2f50.js" crossorigin="anonymous"></script>
+    <script src="/js/my_js.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="--shadow">
+        <header class="--papper_effect">
+            <img class="logo" src="./images/logo.png"></img>
+            <h1 class="site_name">INFOgrapics</h1>
+            <div class="search">
+            </div>
+            <div class="avatar">
+                <img class="avatar-img" src="./images/avatar.png" width="100%" height="100%" />
+            </div>
+            <nav>
+                <ol>
+                    <li><a>MAIN PAGE</a></li>
+                    <li><a>SEARCH</a></li>
+                    <li><a>TITLE</a></li>
+                </ol>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        <section class="article-wrapper --shadow --watch_more">
+            <article class="article --papper_effect">
+                <h2 class="article__title">Any Title for empty article</h2>
+                <div class="article__wrapper-img">
+                    <a href="#openModal">
+                        <img class="article__img" width="240px" height="180px" alt="article image"
+                        src="./images/placeholder.png"/>
+                    </a>
+                </div>
+                <div class="infograpics_wrapper">
+                    <img class="infograpics_wrapper__img" width="120px" height="90px" alt="article image" src="./images/placeholder.png"  onclick="choose(this.src)" />
+                    <img class="infograpics_wrapper__img" width="120px" height="90px" alt="article image" src="./images/placeholder1.png" onclick="choose(this.src)" />
+                    <img class="infograpics_wrapper__img" width="120px" height="90px" alt="article image" src="./images/placeholder2.png" onclick="choose(this.src)" />
+                    <img class="infograpics_wrapper__img" width="120px" height="90px" alt="article image" src="./images/placeholder3.png" onclick="choose(this.src)" />
+                    <img class="infograpics_wrapper__img" width="120px" height="90px" alt="article image" src="./images/placeholder4.png" onclick="choose(this.src)" />
+                </div>
+                <p class="article__text"> &#9; vestibulum sed arcu non odio euismod lacinia at quis risus
+                    sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat
+                    velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis
+                    convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales
+                    neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit
+                    gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in
+                    fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu
+                    tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum
+                    consequat nisl vel pretium lectus quam id leo in vitae turpis massa sed elementum tempus
+                    egestas sed sed risus pretium quam vulputate dignissim suspendisse in est ante in nibh
+                    mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at
+                    imperdiet dui </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <h3>Создатель:</h3>
+            <p>Плескунов Дмитрий</p>
+            <div class="social-wrapper">
+                <h3>Контакты:</h3>
+                <ul class="social">
+                    <a href="mailto:pleskunov_dima@mail.ru">
+                        <li><i class="fa-regular fa-envelope" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="http://t.me/Dimaska30">
+                        <li><i class="fa-brands fa-telegram" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="https://vk.com/maximilian30">
+                        <li><i class="fa-brands fa-vk" aria-hidden="true"></i></li>
+                    </a>
+                    <a href="tel:89081171640">
+                        <li><i class="fa-solid fa-phone" aria-hidden="true"></i></li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div id="openModal" class="modalDialog">
+        <div>
+            <a href="#close" title="Закрыть" class="close">X</a>
+            <h2>Модальное окно</h2>
+            <p>Пример простого модального окна, которое может быть создано с использованием CSS3.</p>
+            <p>Его можно использовать в широком диапазоне, начиная от вывода сообщений и заканчивая формой регистрации.</p>
+        </div>    
+    </div>
+        
+</body>

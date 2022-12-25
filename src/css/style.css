@@ -238,6 +238,119 @@ article {
     -webkit-filter: drop-shadow(8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25));
 }
 
+.article {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 20px 40px;
+}
+
+.article__wrapper-img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.article__img {
+    width: 80%;
+    height: auto;
+    cursor: zoom-in;
+}
+
+.article__title {
+    font-family: OldNewspaperTypes;
+    padding-bottom: 25px;
+    border-bottom: 2px solid black;
+    font-size: 52px;
+}
+
+.article__text {
+    text-indent: 1.5em;
+    text-align: justify;
+    font-size: 24px;
+}
+
+.article__text:first-letter {
+    text-transform: uppercase;
+    font-size: 48px;
+}
+
+.--watch_more {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.infograpics_wrapper {
+    display: flex;
+    margin: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.infograpics_wrapper__img {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	display: none;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	display: block;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
 footer {
     display: flex;
     justify-content: center;
