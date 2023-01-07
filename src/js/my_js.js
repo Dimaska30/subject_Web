@@ -2,11 +2,13 @@
 let current_reaction = [0, 0, 0, 0]
 let current_id_article = 0
 
+let Id
+
 // возвращает куки с указанным name,
 // или undefined, если ничего не найдено
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
@@ -14,32 +16,32 @@ function getCookie(name) {
 function setCookie(name, value, options = {}) {
 
     options = {
-      path: '/',
-      path: "http://127.0.0.1:5555/any_article.html",
-      // при необходимости добавьте другие значения по умолчанию
-      ...options
+        path: '/',
+        path: "http://127.0.0.1:5555/any_article.html",
+        // при необходимости добавьте другие значения по умолчанию
+        ...options
     };
-  
+
     if (options.expires instanceof Date) {
-      options.expires = options.expires.toUTCString();
+        options.expires = options.expires.toUTCString();
     }
-  
+
     let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
-  
+
     for (let optionKey in options) {
-      updatedCookie += "; " + optionKey;
-      let optionValue = options[optionKey];
-      if (optionValue !== true) {
-        updatedCookie += "=" + optionValue;
-      }
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
     }
-  
+
     document.cookie = updatedCookie;
 }
 
 function deleteCookie(name) {
     setCookie(name, "", {
-      'max-age': -1
+        'max-age': -1
     })
 }
 
@@ -70,13 +72,13 @@ const face_sad_tear = (event) => {
 }
 
 const like = (event) => {
- console.log(event)
- toggle(event.target.classList)
- toggle_like()
+    console.log(event)
+    toggle(event.target.classList)
+    toggle_like()
 }
 
 const share = (event) => {
-
+    copyText(document.URL)
 }
 
 const toggle = (list) => {
@@ -96,19 +98,19 @@ const enable = (list) => {
 
 const click_reaction = (el, num) => {
     setReaction(num)
-    let custom_e = new CustomEvent("ChangeReaction",{
+    let custom_e = new CustomEvent("ChangeReaction", {
         bubbles: true,
-        detail: {num: num}
+        detail: { num: num }
     })
     el.dispatchEvent(custom_e)
 }
 
 const toggle_like = () => {
-    let getLike = (Boolean(getCookie("like")))
+    let getLike = toBool(getCookie("like"))
     getLike = !getLike
     let future_date = new Date()
-    future_date.setFullYear(future_date.getFullYear()+5)
-    setCookie("like", getLike, {expires: future_date})
+    future_date.setFullYear(future_date.getFullYear() + 5)
+    setCookie("like", getLike, { expires: future_date })
 }
 
 function getCurrentIDArticle() {
@@ -116,11 +118,11 @@ function getCurrentIDArticle() {
 }
 
 function setReaction(num) {
-    current_reaction = [0,0,0,0]
+    current_reaction = [0, 0, 0, 0]
     current_reaction[num] = 1
     let future_date = new Date()
-    future_date.setFullYear(future_date.getFullYear()+5)
-    setCookie("reaction", JSON.stringify(current_reaction), {expires: future_date})
+    future_date.setFullYear(future_date.getFullYear() + 5)
+    setCookie("reaction", JSON.stringify(current_reaction), { expires: future_date })
 }
 
 function getReaction() {
@@ -128,7 +130,7 @@ function getReaction() {
     let num = current_reaction.indexOf(1)
     children = document.getElementsByClassName("reaction")[0].children[0].children
     for (let i = 0; i < 4; i++)
-        if(i == num){
+        if (i == num) {
             let list = children[i].classList
             enable(list)
         }
@@ -136,14 +138,14 @@ function getReaction() {
 
 
 function getLike() {
-    let currentLike = Boolean(getCookie('like'))
-    if(currentLike) {
+    let currentLike = toBool(getCookie('like'))
+    if (currentLike) {
         let list = document.getElementsByClassName("--red")[0].classList
         enable(list)
     }
 }
 
-window.onload = function() { 
+window.onload = function () {
     getCurrentIDArticle()
     getReaction()
     getLike()
@@ -151,9 +153,35 @@ window.onload = function() {
         console.log("Hi")
         children = document.getElementsByClassName("reaction")[0].children[0].children
         for (let i = 0; i < 4; i++)
-            if(i != event.detail.num) disable(children[i].classList)
-        }
+            if (i != event.detail.num) disable(children[i].classList)
+    }
     )
+}
 
-    
+const toBool = (value) => {
+    if (value === 'true')
+        return true;
+    else return false;
+}
+
+const push = (id) => {
+    location.hash = "#" + id;
+    Id = setTimeout(() => {
+        location.hash = "#close"
+    }, 15000)
+}
+
+function copyText(text) {
+    if (!navigator.clipboard) {
+        alert("OOOOPS!...")
+        push("errorCopy")
+        return;
+    }
+    navigator.clipboard.writeText(text).then(function () {
+        console.log('Async: Copying to clipboard was successful!')
+        push("successCopy")
+    }, function (err) {
+        console.error('Async: Could not copy text: ', err)
+        push("errorCopy")
+    });
 }

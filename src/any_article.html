@@ -13,8 +13,25 @@
         <header class="--papper_effect">
             <img class="logo" src="./images/logo.png"></img>
             <h1 class="site_name">INFOgrapics</h1>
-            <div class="search">
-            </div>
+            <form class="search">
+                <fieldset>
+                    <legend>Поиск</legend>
+                    <div>
+                        <input type="text" placeholder="Напиши, мне, напиши"></input>
+                        <div class="search__btn"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    </div>
+                    <div class="search__checkbox-wrapper">
+                        <div>
+                            <input type="radio" name="type_search" value="Title" id="type_search_title" checked/>
+                            <label for="type_search_title">Заголовок</label>
+                        </div>
+                        <div>
+                            <input type="radio"  name="type_search" value="tag" id="type_search_tag"/>
+                            <label for="type_search_tag">Теги</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
             <div class="avatar">
                 <img class="avatar-img" src="./images/avatar.png" width="100%" height="100%" />
             </div>
@@ -64,7 +81,9 @@
                     </div>
                     <div>
                         <i class="fa-regular fa-heart --red" onclick="like(event)"></i>
-                        <i class="fa-solid fa-share-nodes" onclick="share(event)"></i>
+                        <div class="share">
+                            <i class="fa-solid fa-share-nodes" onclick="share(event)"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="tags_wrapper">
@@ -76,7 +95,8 @@
             </article>
         </section>
     </main>
-
+    <p id="successCopy">Ссылка успешна скопирована!</p>
+    <p id="errorCopy">Что-то пошло не так :(</p>
     <footer>
         <div>
             <h3>Создатель:</h3>
@@ -110,5 +130,4 @@
             <p class="modalDialog_img_description">Описание картинки</p>
         </div>    
     </div>
-        
 </body>
