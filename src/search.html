@@ -5,14 +5,14 @@
     <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
     <link href="./css/style.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/e0fecb2f50.js" crossorigin="anonymous"></script>
-    <script src="js/search.js" type="text/javascript"></script>
+    <script src="/js/search.js" type="text/javascript"></script>
 </head>
 
 <body>
     <div class="--shadow">
         <header class="--papper_effect">
             <img class="logo" src="./images/logo.png"></img>
-            <h1 class="site_name">INFOgrapics</h1>
+            <h1 class="site_name">Запрос</h1>
             <form class="search">
                 <fieldset>
                     <legend>Поиск</legend>
@@ -182,7 +182,7 @@
                                 src="./images/placeholder.png" />
                         </div>
                         <h2 class="mini_article__title">Any Title for empty article</h2>
-                        <p class="mini_article__text"> &#9; vestibulum sed arcu non odio euismod lacinia at quis risus
+                        <p class="mini_article__text">vestibulum sed arcu non odio euismod lacinia at quis risus
                             sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat
                             velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis
                             convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales
@@ -193,7 +193,7 @@
                             consequat nisl vel pretium lectus quam id leo in vitae turpis massa sed elementum tempus
                             egestas sed sed risus pretium quam vulputate dignissim suspendisse in est ante in nibh
                             mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at
-                            imperdiet dui </p>
+                            imperdiet dui</p>
                     </article>
                 </div>
             </div>
@@ -215,8 +215,9 @@
             </div>
         </div>
     </footer>
+
     <template id="template_article">
-        <a class="--shadow" href="localhost/articles/">
+        <div class="--shadow">
             <article class="mini_article --papper_effect">
                 <div class="mini_article__wrapper-img">
                     <img class="mini_article__img" width="240px" height="180px" alt="article image"
@@ -225,6 +226,6 @@
                 <h2 class="mini_article__title"></h2>
                 <p class="mini_article__text"></p>
             </article>
-        </a>
+        </div>
     </template>
 </body>
