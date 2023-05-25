@@ -52,7 +52,8 @@ $layout_content = renderTemplate('layout.php',[
     'header' => $header,
     'content' => $page_content,
     'footer' => $footer,
-    'template' => $template
+    'template' => $template,
+    'turn_on_search' => False,
 ]);
 
 // вывод на экран итоговой страницы

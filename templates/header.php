@@ -1,6 +1,6 @@
 <div class="--shadow">
     <header class="--papper_effect">
-            <img class="logo" src="./images/logo.png"></img>
+            <a href="/INFOgrapics/index.php"><img class="logo" src="./images/logo.png"></img></a>
             <h1 class="site_name"><?=$title_page; ?></h1>
             <form class="search">
                 <fieldset>
@@ -21,7 +21,7 @@
                     </div>
                 </fieldset>
             </form>
-            <a class="avatar" href="http://localhost/INFOgrapics/profile.html">
+            <a class="avatar" href="http://localhost/INFOgrapics/profile.php">
                 <img class="avatar-img" src=<?= $avatar; ?> width="100%" height="100%" title=<?= $nickname; ?> />
             </a>
             <nav>

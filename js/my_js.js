@@ -17,7 +17,7 @@ function setCookie(name, value, options = {}) {
 
     options = {
         path: '/',
-        path: "http://127.0.0.1:5555/any_article.html",
+        path: document.URL,
         // при необходимости добавьте другие значения по умолчанию
         ...options
     };
@@ -72,7 +72,6 @@ const face_sad_tear = (event) => {
 }
 
 const like = (event) => {
-    console.log(event)
     toggle(event.target.classList)
     toggle_like()
 }
@@ -147,8 +146,28 @@ function getLike() {
 
 window.onload = function () {
     getCurrentIDArticle()
-    getReaction()
-    getLike()
+    if(data_base_reaction == "None"){
+        getReaction()
+    }else{
+        if (data_base_reaction == "lol") {
+            setReaction(0)
+        }
+        if (data_base_reaction == "smile") {
+            setReaction(1)
+        }
+        if (data_base_reaction == "sad") {
+            setReaction(2)
+        }
+        if (data_base_reaction == "cry") {
+            setReaction(3)
+        }
+    }
+    if(data_base_like =="fa-regular") {
+        getLike()
+    }else {
+        toggle_like()
+    }
+    
     document.getElementsByClassName("reaction")[0].addEventListener("ChangeReaction", (event) => {
         console.log("Hi")
         children = document.getElementsByClassName("reaction")[0].children[0].children

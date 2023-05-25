@@ -26,19 +26,18 @@ $header = renderTemplate('./templates/header.php', [
     'nickname' => $user['login']
 ]);
 
-$request_1 = $mysqli->query( "SELECT * FROM favorites WHERE ID_user=".$user['ID'] );
+/* $request_1 = $mysqli->query( "SELECT * FROM favorites WHERE ID_user=".$user['ID'] );
 $posts_favorites = mysqli_fetch_all($request_1, MYSQLI_ASSOC);
-
+print_r($posts_favorites);
 $request_2 = $mysqli->query( "SELECT * FROM laters WHERE ID_user=".$user['ID'] );
 $posts_laters = mysqli_fetch_all($request_1, MYSQLI_ASSOC);
 
 $request_1 = $mysqli->query( "SELECT * FROM post WHERE ID_autor=".$user['ID'] );
-$posts_written = mysqli_fetch_all($request_1, MYSQLI_ASSOC);
+$posts_written = mysqli_fetch_all($request_1, MYSQLI_ASSOC); */
 
 
 
 $page_content = renderTemplate('./templates/profile.php', [
-    'posts'=>$posts_favorites,
     'avatar'=>$user['Picture'],
     'Email'=>$user["Email"],
     'nickname' => $user['login']
@@ -63,7 +62,8 @@ $layout_content = renderTemplate('layout.php',[
     'header' => $header,
     'content' => $page_content,
     'footer' => $footer,
-    'template' => $template
+    'template' => $template,
+    'turn_on_search' => False,
 ]);
 
 // вывод на экран итоговой страницы

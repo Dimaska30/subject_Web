@@ -1,5 +1,5 @@
 
-<a class="--shadow" href=<?="http://localhost/article?id=".$post['ID']; ?>>
+<a class="--shadow" href=<?="http://localhost/INFOgrapics/article.php?id=".$post['ID']; ?>>
     <article class="mini_article --papper_effect" id=<?=$post['ID']; ?>>
         <div class="mini_article__wrapper-img">
             <img class="mini_article__img" width="240px" height="180px" alt="article image"
